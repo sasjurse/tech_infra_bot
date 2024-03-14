@@ -1,0 +1,27 @@
+# Mission
+
+Our goal is to create a chatbot that can discuss tech infrastructures. The app has two components, one where the user describes the interface and a second where the user interacts with chatgpt and asks questions about it.
+
+# Part 1:
+
+Very minimum setup
+
+1) Streamlit app
+2) Feedback option
+3) Store query history on disk
+4) Visualize query feedback
+
+The key goal of part 1 is being able to let users test the application and storing feedback.
+
+By inspecting the results so far, we can better understand project viability and key challenges to overcome.
+
+# Part 2:
+
+Minimum deployable version.
+
+Steps
+1) Think about tech stack. Use Langchain? Do we need retrieval augmented generation? What storage solutions are we using?
+2) Dockerize
+3) Continuous Deployment
+
+# Part 3:
