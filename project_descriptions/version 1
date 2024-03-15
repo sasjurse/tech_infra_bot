@@ -30,6 +30,7 @@ Steps
 4) A database to store data in, likely postgres. 
 5) Dockerize the streamlit interface
 6) Continuous Deployment. Use github actions to ensure that updates are pushed automatically.
+7) Any optimizations we can do on prompt engineering?
 
 A possible extension is allowing direct changes to the project plan based on chat interactions (currently project plan is only updated by the user). e.g. the chat propose a change and the user agrees or not. 
 
@@ -51,7 +52,7 @@ Steps
 
 1) User management. 
 2) Setup proper cost controls
-3) Logging and monitoring.
+3) Logging and monitoring. Likely Google Cloud Logging and Google Cloud Monitoring.
 4) Improve CI, create enough automated testing to cover common issues experienced so far.
 5) Separate the interface, the backend and the analytics. Unless we found interesting products to do major parts of our backend, we are doing python fastapi hosted on docker + the database. Frontend to be decided.
 
@@ -78,6 +79,11 @@ Steps:
 2) Add feedback option on the whether the question is good (so far we have focused on evaluating if a response is good).
 
 ### Part 7. Milestone "Enable scale".
+
+Enable users to search through (text and semantic) projects to enable learning from previous projects and identifying possible discussion partners.
+
+
+### Part 8. Milestone "Enable scale".
 
 Goal: Enhance the chatbot capabilities and optimize the infrastructure for scalability and efficiency.
 
