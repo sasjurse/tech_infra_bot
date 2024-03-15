@@ -1,0 +1,20 @@
+### Requirements
+
+Our large consulting company is preparing a lot of proposals on tech infrastructure. Can we create a chatbot for our consultants to help discuss these proposals as they are being prepared?
+
+The initial use case is improving the workflow when making one proposal.
+However, a likely extension is being able to search prior proposals to identify previous projects and consultants to learn from.
+
+The solution should be hosted on Google Cloud Platform
+
+#### Users
+
+The users of the app are our consultants who are creating a roadmap and tech infrastructure for a client need. We estimate this to be between 300 and 15000 users total.
+
+#### Initial assumptions
+
+The app has two components, one where the user describes the project and a second where the user interacts with chatgpt and asks questions about it.
+
+#### Commercial considerations
+
+Since we know little about exactly what the user needs are, the roadmap needs to focus on early validation and fast iterations.

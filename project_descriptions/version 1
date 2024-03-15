@@ -1,27 +1,90 @@
-# Mission
+Overall milestones
 
-Our goal is to create a chatbot that can discuss tech infrastructures. The app has two components, one where the user describes the interface and a second where the user interacts with chatgpt and asks questions about it.
+1) Prove value
+2) Iterate to create more value
+3) Enable scale
 
-# Part 1:
 
-Very minimum setup
+### Part 1. Milestone "Prove Value"
 
-1) Streamlit app
-2) Feedback option
-3) Store query history on disk
-4) Visualize query feedback
+Goal: build a very simple app that the developers can use so that we can sanity check the viability of the project
+and improve our intuition about the key challenges we will face.
 
-The key goal of part 1 is being able to let users test the application and storing feedback.
+Steps:
 
-By inspecting the results so far, we can better understand project viability and key challenges to overcome.
+1) Create a simple interface using streamlit
+2) Store query history on disk
 
-# Part 2:
+All code will be in Python, only one project is supported.
+Since a key goal is sharing how the app look and feels, we will make a questionable design choice and include query history and project plans in our git repo.
 
-Minimum deployable version.
+### Part 2. Milestone "Prove Value"
+
+Goal: Make it possible for internal users to also try the application. Start collecting data on what the chatbot does well or poorly. We will have multiple projects to explore.
 
 Steps
-1) Think about tech stack. Use Langchain? Do we need retrieval augmented generation? What storage solutions are we using?
-2) Dockerize
-3) Continuous Deployment
 
-# Part 3:
+1) Sanity check legal issues for data entered into the app. Could some users be adding data that is too confidential?
+2) An initial data model for storing the project plan, chats and feedback. We will use SQLModel for easy schema creation and tracking.
+3) Feedback option on the chat replies.
+4) A database to store data in, likely postgres. 
+5) Dockerize the streamlit interface
+6) Continuous Deployment. Use github actions to ensure that updates are pushed automatically.
+
+A possible extension is allowing direct changes to the project plan based on chat interactions (currently project plan is only updated by the user). e.g. the chat propose a change and the user agrees or not. 
+
+### Part 3. Milestone "Iterate to create more value"
+
+Goal: Make an educated guess of what the long term infrastructure will look like.
+
+Steps
+1) Which metrics are we using to evaluate the overall application? And which metrics should we monitor on chatbot performance?
+2) Visualize query feedback. How are users responding to the assistant feedback=
+3) Are there any existing solutions in our cloud provider of choice that already does this well? Existing products of interest: Dialogflow by Google, Amazon Lex, Microsoft Bot Framework, IBM Watson Assistant, Rasa, Wit.ai
+4) How much context do the chatbot need? Do we need retrieval augmented generation? If so, which vector database should we use?
+
+### Part 4. Milestone "Iterate to create more value"
+
+Goal: Start building towards a sustainable infrastructure.
+
+Steps
+
+1) User management. 
+2) Setup proper cost controls
+3) Logging and monitoring.
+4) Improve CI, create enough automated testing to cover common issues experienced so far.
+5) Separate the interface, the backend and the analytics. Unless we found interesting products to do major parts of our backend, we are doing python fastapi hosted on docker + the database. Frontend to be decided.
+
+Initial assumptions: Backend in Google Kubernetes Engine and Cloud SQL for the postgres database.
+
+### Part 5. Milestone "Iterate to create more value"
+
+Goal: Evaluate app performance
+
+Steps
+
+1) Make sure that usage statistics are collected
+2) Make a dashboard on usage and feedback on chat replies.
+3) Look at collected feedback. Any common trends of issues?
+4) Do we have enough feedback data to start retraining the chatbot?
+
+### Part 6. Milestone "Iterate to create more value"
+
+Goal: Always ask the most valuable questions automatically, so that consultants do need to prompt engineer too much.
+
+Steps:
+
+1) Consider an automated evaluation tab that asks questions that have yielded good responses. In particular, comparisons between requirements and the project plan.
+2) Add feedback option on the whether the question is good (so far we have focused on evaluating if a response is good).
+
+### Part 7. Milestone "Enable scale".
+
+Goal: Enhance the chatbot capabilities and optimize the infrastructure for scalability and efficiency.
+
+Steps
+
+1) Optimize database queries and indexing for better performance as the user base grows.
+2) Implement caching mechanisms to improve response times.
+3) Monitor and optimize resource usage in Google Cloud Platform to manage costs effectively.
+4) Conduct load testing to ensure the system can handle peak usage scenarios.
+5) Implement a backup and disaster recovery plan for critical data.
