@@ -16,7 +16,7 @@ def ask_about_project(question: str, project_id: int):
                      + f" Here is the current plan: {current_plan}")
 
     messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": question}]
-    answer = ask_chatgpt(messages, model='gpt-4')
+    answer = ask_chatgpt(messages, model='gpt-3.5-turbo-0125')
 
     for message in messages:
         add_to_history(message['role'], message['content'], project_id=project_id)
