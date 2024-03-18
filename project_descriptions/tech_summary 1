@@ -1,0 +1,9 @@
+1. **Python programming language**: for the development of core functionalities like interface creation, data modeling, and response optimization.
+
+2. **Streamlit framework**: to create the simple user interface in the initial stages of the project.
+
+3. **SQLModel and PostgreSQL**: for data storage, schema creation, and tracking. SQLModel will be used for creating data models and PostgreSQL as a primary relational database management system.
+
+4. **Docker and Google Kubernetes Engine**: Docker for application packaging and deployment, Kubernetes for managing and orchestrating our Docker containers.
+
+5. **Google Cloud Platform**: used for backend hosting, logging, monitoring, along with Google Cloud SQL for database management. Additionally, tools like Google Cloud Logging and Google Cloud Monitoring for infrastructure monitoring and performance tracking.

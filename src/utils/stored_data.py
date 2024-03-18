@@ -4,33 +4,21 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-# This is just to create a rudimentary option for testing multiple files at once. The files no need to be
-# created in advance or there will likely be a crash
-PROJECT_VERSION = 1
+DOCUMENTS_THAT_CAN_BE_RETRIEVED = ['document', 'requirements', 'project_plan', 'tech_summary', 'history']
 
 
-def retrieve_requirements():
-    path = f'../project_descriptions/requirements {PROJECT_VERSION}'
+def retrieve_document(document_type: str, project_id: int = 1):
+    assert document_type in DOCUMENTS_THAT_CAN_BE_RETRIEVED, f'Invalid document type: {document_type}'
+    path = f'../project_descriptions/{document_type} {project_id}'
     with open(path, 'r') as f:
         return f.read()
 
 
-def store_requirements(requirements: str):
-    path = f'../project_descriptions/requirements {PROJECT_VERSION}'
+def store_document(document_type: str, document: str, project_id: int = 1):
+    assert document_type in DOCUMENTS_THAT_CAN_BE_RETRIEVED, f'Invalid document type: {document_type}'
+    path = f'../project_descriptions/{document_type} {project_id}'
     with open(path, 'w') as f:
-        f.write(requirements)
-
-
-def retrieve_plan():
-    path = f'../project_descriptions/version {PROJECT_VERSION}'
-    with open(path, 'r') as f:
-        return f.read()
-
-
-def store_plan(plan: str):
-    path = f'../project_descriptions/version {PROJECT_VERSION}'
-    with open(path, 'w') as f:
-        f.write(plan)
+        f.write(document)
 
 
 class ChatEntry(BaseModel):
@@ -47,8 +35,8 @@ class ChatHistory(BaseModel):
         return "\n".join(chat_entry.json() for chat_entry in self.entries)
 
 
-def retrieve_history():
-    path = f'../project_descriptions/history {PROJECT_VERSION}.jsonl'
+def retrieve_history(project_id: int):
+    path = f'../project_descriptions/history {project_id}.jsonl'
     with open(path, 'r') as f:
         entries = []
         for line in f:
@@ -61,8 +49,8 @@ def retrieve_history():
         return ChatHistory(entries=entries)
 
 
-def add_to_history(role, content):
+def add_to_history(role, content, project_id: int):
     chat_entry = ChatEntry(role=role, content=content)
-    path = f'../project_descriptions/history {PROJECT_VERSION}.jsonl'
+    path = f'../project_descriptions/history {project_id}.jsonl'
     with open(path, 'a') as f:
         f.write(chat_entry.json() + "\n")

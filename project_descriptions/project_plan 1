@@ -29,20 +29,23 @@ Steps
 3) Feedback option on the chat replies.
 4) A database to store data in, likely postgres. 
 5) Dockerize the streamlit interface
-6) Continuous Deployment. Use github actions to ensure that updates are pushed automatically.
+6) Continuous Deployment. Use github actions to ensure that updates are pushed automatically. The key parts here is docker build, push and deploy steps. for the streamlit interface.
 7) Any optimizations we can do on prompt engineering?
+8) A possible extension is allowing direct changes to the project plan based on chat interactions (currently project plan is only updated by the user). e.g. the chat propose a change and the user agrees or not. 
 
-A possible extension is allowing direct changes to the project plan based on chat interactions (currently project plan is only updated by the user). e.g. the chat propose a change and the user agrees or not. 
+Once this is setup, we are doing usability testing to learn more on what works or not.
 
 ### Part 3. Milestone "Iterate to create more value"
 
 Goal: Make an educated guess of what the long term infrastructure will look like.
 
 Steps
-1) Which metrics are we using to evaluate the overall application? And which metrics should we monitor on chatbot performance?
-2) Visualize query feedback. How are users responding to the assistant feedback=
+1) Which metrics are we using to evaluate the overall application? And which metrics should we monitor on chatbot performance? Can we measure impact on time to produce project proposals or proposal success rate? A good proxy could be user retention, do our consultants go back to using the tool consistently after trying it once?
+2) A dashboard for query feedback. How are users responding to the assistant feedback? What are the good and bad responses?
 3) Are there any existing solutions in our cloud provider of choice that already does this well? Existing products of interest: Dialogflow by Google, Amazon Lex, Microsoft Bot Framework, IBM Watson Assistant, Rasa, Wit.ai
 4) How much context do the chatbot need? Do we need retrieval augmented generation? If so, which vector database should we use?
+5) Any integrations into existing systems that should happen now or later?
+6) Any other LLMs that might be better suited than openai? What are the pros and cons of self hosting?
 
 ### Part 4. Milestone "Iterate to create more value"
 
@@ -68,10 +71,11 @@ Steps
 2) Make a dashboard on usage and feedback on chat replies.
 3) Look at collected feedback. Any common trends of issues?
 4) Do we have enough feedback data to start retraining the chatbot?
+5) Start doing surveys with our users to learn more about possible improvements.
 
 ### Part 6. Milestone "Iterate to create more value"
 
-Goal: Always ask the most valuable questions automatically, so that consultants do need to prompt engineer too much.
+Goal: Always ask the most valuable questions automatically, so that consultants do not need to prompt engineer too much.
 
 Steps:
 
@@ -94,3 +98,12 @@ Steps
 3) Monitor and optimize resource usage in Google Cloud Platform to manage costs effectively.
 4) Conduct load testing to ensure the system can handle peak usage scenarios.
 5) Implement a backup and disaster recovery plan for critical data.
+
+
+### Part 9. Milestone "Enable scale".
+
+Explore additional features.
+
+Ideas:
+* Add search that matches consultant's CVs with projects.
+* H
